@@ -1,0 +1,126 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing:border-box ;
+    font-family: 'Josefin Sans', sans-serif;
+font-family: 'Kanit', sans-serif;
+font-family: 'Montserrat', sans-serif;
+font-family: 'Nosifer', sans-serif;
+font-family: 'Playfair Display', serif;
+font-family: 'Poppins', sans-serif;
+font-family: 'Roboto', sans-serif;
+font-family: 'Roboto Slab', serif;
+}
+body{
+    background-color: rgb(213, 191, 233);
+}
+.header{
+    position: fixed;
+    background: rgb(77, 51, 88);
+    color: rgb(68, 23, 113);
+    height: 80px;
+    width: 100%;
+    top: 0px;
+    text-align: center;
+
+}
+.header h1{
+    padding: 20px;
+    color: aliceblue;
+}
+.user{
+    position: relative;
+    margin-top:130px;
+    background-color: rgb(188, 164, 211);
+    height: 200px;
+    padding: 40px;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+.user p{
+    padding: 3px;
+}
+.user button{
+    float: right;
+    height: 35px;
+    width: 80px;
+    border-radius: 10px;
+    cursor: pointer;
+    
+}
+.complaint{
+    margin-top:40px;
+    background-color: rgb(188, 164, 211);
+    height: 200px;
+    padding: 50px;
+
+}
+
+.file_comp {
+    background-color:rgb(188, 164, 211);
+    padding: 20px;
+    margin-top:50px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+   
+}
+
+label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+.file_comp textarea {
+    width: 80%;
+    padding: 8px;
+    margin-bottom: 10px;
+    /* box-sizing: border-box; */
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    outline: none;
+    resize: none;
+    border-color: #b78ed8;
+    
+
+   
+}
+textarea:is(:focus, :valid){
+    border-width: 2px;
+    padding: 10px;
+    border-color: #5e465c;
+    transition: 0.5s;
+}
+textarea::-webkit-scrollbar{
+    width: 0px;
+}
+#comp{
+    width: 80%;
+    padding: 8px;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    resize: none;
+    border: 1px solid rgb(78, 48, 106);
+    box-shadow: 2px 2px 2px ;
+}
+
+input[type="submit"] {
+    background-color: #2a0845;
+    color: #fff;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: 0.01s;
+}
+
+input[type="submit"]:hover {
+    background-color: #5e4671;
+}
+.table {
+    border: 2px solid #5e465c;
+}

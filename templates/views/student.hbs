@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Portal</title>
+    <link rel="stylesheet" href="/student.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Borel&family=Josefin+Sans:wght@500&family=Kanit&family=Montserrat:wght@100&family=Nosifer&family=Playfair+Display:wght@400;500&family=Poppins:wght@400;700&family=Roboto&family=Roboto+Slab&display=swap" rel="stylesheet">
+</head>
+<body>
+     <div class="header">
+       <h1>Student's Portal</h1>
+
+     </div>
+     <div class="user">
+     <p>Name             : Akriti Gaur</p>
+     <p>Registration no. : 20223022</p>
+     <p>Course : CSE</p>
+     <p>Email : akritigaur1990@gmail.com</p>
+     <p>Hostel's name : DJGH</p>
+     <button>Logout</button>
+
+
+
+     </div>
+     <div class="complaint">
+           <h3>Complaints</h3>
+           <table class="table">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Category</th>
+                    <th>Status</th>
+                  
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>mess food</td>
+                    <td>unresolved</td>
+                  
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>mess food</td>
+                    <td>unresolved</td>
+                </tr>
+               
+            </tbody>
+        </table>
+
+
+     </div>
+
+     <div class="file_comp">
+        <label for="category">Category of Complaint :  <input type="text" id="comp"></label>
+       
+        <textarea placeholder="Type Your Complaint Here..." required></textarea>
+        <input type="submit" name="submit" id="submit">
+     </div>
+
+     <footer class="foot">
+       
+     </footer>
+<script>
+    const textarea=document.querySelector("textarea");
+    textarea.addEventListener("keyup",e =>{
+        let scheight = e.target.scrollHeight;
+        textarea.style.height ="auto";
+        textarea.style.height = `${scheight}px`;
+
+    })
+    
+
+</script>
+
+</body>
+</html>

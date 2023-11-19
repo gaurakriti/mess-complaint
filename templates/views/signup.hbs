@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/signup.css">
+</head>
+<body>
+    {{!-- {{>header}} --}}
+    <div class="head">
+    <h1>Welcome to MNNIT Mess !</h1>
+   
+    <h2>Create Your Account</h2>
+    
+    </div>
+        <div class="container">
+            <img class="register" src="/photos/sign.png" alt="register">
+        
+        <form action="/signup" class="form" method="POST"> 
+
+        <label for="name" class="name" value="name">Name: <input type="text" id="name" class="place" placeholder="Enter Your Name"></label> 
+        
+
+        <label class="name" for="gender">Gender: <input type="text" name="gender" id="gender" class="place" placeholder="Gender"></label>
+        
+
+        
+        <div class="name place">
+            <p>Course in which you are studying ?</p>
+        
+        <label for="Btech" > <input type="radio" id="Btech" value="Btech" name="course">  Btech</label> <br>
+        
+        <label for="MCA" ><input type="radio" id="MCA" value="MCA" name="course"> MCA</label> <br>
+        
+        <label for="Mtech" ><input type="radio" id="Mtech" name="course" value="Mtech"> Mtech</label> <br>
+       
+        <label for="Phd" > <input type="radio" id="Phd" name="course" value="Phd"> Phd</label>
+        </div>
+        
+        <label class="name"  for="year" >Current year: <input type="text" id="year" class="place" placeholder="Year of studying"></label>
+        <label class="name"  for="reg_no">Enter Your Registration no. <input type="text" name="reg_no"  class="place" id="reg_no" placeholder="******"></label>
+        
+        <label class="name" for="hostel">Enter Your Hostel name: <input type="text" name="hostel" class="place" id="hostel" placeholder="Hostel's Name"></label>
+
+        <label class="name" value="name" for="password">Generate password: <input type="password" name="password" class="place" id="password" placeholder="enter password"></label>
+        <input type="submit" name="submit" id="submit">
+        </form>
+<a href="/student">student</a>
+
+    </div>
+
+</body>
+</html>
