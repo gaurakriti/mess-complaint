@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="cache-control" content="no-cache, must-revalidate, post-check=0, pre-check=0" />
+  <meta http-equiv="expires" content="0" />
+  <meta http-equiv="pragma" content="no-cache" />
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="/">
+  <title>Mess Secretary Portal</title>
+<style>.html {
+  background-color: aquamarine;
+}
+
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #f8f9fa;
+  padding-top: 50px;
+}
+
+.container {
+  background-color: rgb(147, 121, 209);
+  padding: 20px 10px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h2,h3 {
+  padding: 30px;
+  text-align: center;
+  color:wheat;
+  font-size: 30px;
+}
+
+.nav-item {
+  margin-right: 20px;
+  padding: 20px;
+}
+
+.nav-link {
+  color: black;
+  background-color: #e9ecef;
+  border-radius: 5px;
+  padding: 10px 15px;
+  text-align: center;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.nav-link:hover {
+  color: #ffffff;
+  background-color: #007bff;
+}
+
+table {
+  margin-top: 20px;
+}
+
+th,
+td {
+  color:antiquewhite;
+  text-align: center;
+}
+
+.btn-primary,
+.btn-secondary {
+  background-color: #007bff;
+  border-color: #007bff;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.btn-danger {
+  background-color: #dc3545;
+  border-color: #dc3545;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.btn-primary:hover,
+.btn-secondary:hover,
+.btn-danger:hover {
+  background-color: #0056b3;
+  border-color: #0056b3;
+}
+
+#complaintsSection,
+#updateMenuSection,
+#resolvedComplaintsSection,
+#viewMenuSection {
+  color:white;
+  text-align: center;
+  display: none;
+}
+
+.resolved-checkbox {
+  color:white;
+  text-align: center;
+  margin-right: 5px;
+}
+
+#updateMenuSection form {
+  color:white;
+  text-align: center;
+  margin-top: 20px;
+}
+
+#updateMenuSection button {
+  color:white;
+  text-align: center;
+  margin-top: 10px;
+}</style>
+</head>
+<body>
+  <div class="center-div">
+    <div class="container">
+      <h2>Mess Secretary Portal</h2>
+      <ul class="nav">
+        <li class="nav-item">
+          <a class="nav-link" href="#" onclick="showComplaints()">All Registered Complaints</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#" onclick="showUpdateMenu()">Update Menu</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#" onclick="showResolvedComplaints()">Resolved Complaints</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#" onclick="viewMenu()">View Menu</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#" onclick="logout()">Logout</a>
+        </li>
+      </ul>
+      <div id="complaintsSection">
+        <h3>All Registered Complaints</h3>
+        <table class="table table-bordered">
+          <thead class="thead-light">
+            <tr>
+              <th></th>
+              <th>Registration No</th>
+              <th>Name</th>
+              <th>Complaint</th>
+            </tr>
+          </thead>
+          <tbody id="complaintsTableBody">
+            <!-- Complaints will be dynamically added here -->
+          </tbody>
+        </table>
+        <button class="btn btn-danger" onclick="resolveComplaint()">Resolve Selected Complaints</button>
+      </div>
+      <div id="updateMenuSection">
+        <h3 style="color: white; text-align: center;">Update Menu</h3>
+        <form>
+          <div class="form-group">
+            <label for="day">Select Day:</label>
+            <select class="form-control" id="day">
+              <option>Monday</option>
+              <option>Tuesday</option>
+              <option>Wednesday</option>
+              <option>Thursday</option>
+              <option>Friday</option>
+              <option>Saturday</option>
+              <option>Sunday</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="meal">Select Meal:</label>
+            <select class="form-control" id="meal">
+              <option>Breakfast</option>
+              <option>Lunch</option>
+              <option>Snacks</option>
+              <option>Dinner</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="menu">Enter Menu:</label>
+            <input type="text" class="form-control" id="menu">
+          </div>
+          <button type="button" class="btn btn-primary" onclick="updateMenu()">Update Menu</button>
+        </form>
+      </div>
+      <div id="resolvedComplaintsSection">
+        <h3>Resolved Complaints</h3>
+        <table class="table table-bordered">
+          <thead class="thead-light">
+            <tr>
+              <th>Registration No</th>
+              <th>Name</th>
+              <th>Complaint</th>
+            </tr>
+          </thead>
+          <tbody id="resolvedComplaintsTableBody">
+            <!-- Resolved complaints will be dynamically added here -->
+          </tbody>
+        </table>
+      </div>
+      <div id="viewMenuSection">
+        <h3>View Menu</h3>
+        <table class="table table-bordered">
+          <thead class="thead-light">
+            <tr>
+              <th>Day</th>
+              <th>Breakfast</th>
+              <th>Lunch</th>
+              <th>Snacks</th>
+              <th>Dinner</th>
+            </tr>
+          </thead>
+          <tbody id="viewMenuTableBody">
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  <script>
+    const complaintsData = [
+    { regNo: '123', name: 'John Doe', complaint: 'Food quality is poor' },
+    { regNo: '456', name: 'Jane Smith', complaint: 'Late serving of meals' },
+    { regNo: '789', name: 'Bob Johnson', complaint: 'No vegetarian options' },
+    { regNo: '101', name: 'Alice Williams', complaint: 'Unhygienic conditions' },
+    { regNo: '202', name: 'Eva Davis', complaint: 'Menu not diverse enough' }
+  ];
+
+  const resolvedComplaintsData = [];
+
+  // Dummy data for menu
+  const menuData = [
+    { day: 'Monday', breakfast: 'Omelette,Idli-sambhar,Bread-jam,Milk,Tea', lunch: 'Mix-veg,Rice,Roti,Salad', snacks:'Bread-Cutlet,tea',dinner: 'Palak-allu,Rice,Roti,Ice-cream' },
+    { day: 'Tuesday', breakfast: 'Fried-idli,Bread-jam,Milk,Tea', lunch: 'Alu,Raita,Rice,Roti,Salad',snacks:'Manchurian,Tea', dinner: 'Pulao,chola,Gulaabjamun,Roti' },
+    { day: 'Wednesday', breakfast: 'Fruit Salad,Bread-jam,Milk,Tea', lunch: 'Patta-gobhi,Raita,Rice,Roti,Salad',snacks:'pastry,Coffee', dinner: 'Chana-Allu,Rice,Roti' },
+    { day: 'Thursday', breakfast: 'Pav-bhaji,Bread-jam,Milk,Tea', lunch: 'Kadi-pakoda,Rice,Roti,Salad', snacks:'Allu tikia,tea',dinner: 'Mix-veg,Rice,Roti,Salad' },
+    { day: 'Friday', breakfast: 'Chole Bhatore,Bread-jam,Milk,Tea', lunch: 'Chana-dal,Phool gobhi,Raita,Rice,Roti,Salad',snacks:'Noodle,tea', dinner: 'Allu-paalak,Rice,Roti,Salad' },
+    { day: 'Saturday', breakfast: 'Poori sabji,Bread-jam,Milk,Tea', lunch: 'Mix-veg,kali-masur,Rice,Roti,Salad',snacks:'off', dinner: 'Matar-Paneer,Chana-dal,Roti,Rice' },
+    { day: 'Sunday', breakfast: 'Sambhar Vada,Omlet,Bread-Butter ', lunch: 'Rajma,Aku fry,Raita,Rice,Roti,Salad',snacks:'Pani-puri,tea', dinner: 'MAlai Kofta,Arhar dal,EGG curry,Roti,Rice' }
+  ];
+
+  function showComplaints() {
+    const complaintsTableBody = document.getElementById('complaintsTableBody');
+    complaintsTableBody.innerHTML = '';
+
+    complaintsData.forEach((complaint, index) => {
+      const row = `
+        <tr>
+          <td><input type="checkbox" class="resolved-checkbox" id="checkbox-${index}" /></td>
+          <td>${complaint.regNo}</td>
+          <td>${complaint.name}</td>
+          <td>${complaint.complaint}</td>
+        </tr>
+      `;
+      complaintsTableBody.innerHTML += row;
+    });
+
+    document.getElementById('complaintsSection').style.display = 'block';
+    document.getElementById('updateMenuSection').style.display = 'none';
+    document.getElementById('resolvedComplaintsSection').style.display = 'none';
+    document.getElementById('viewMenuSection').style.display = 'none';
+    
+  }
+
+  function resolveComplaint() {
+  const resolvedComplaintsTableBody = document.getElementById('resolvedComplaintsTableBody');
+
+  complaintsData.forEach((complaint, index) => {
+    const checkbox = document.getElementById(`checkbox-${index}`);
+
+    if (checkbox.checked) {
+      resolvedComplaintsData.push(complaint);
+      checkbox.checked = false; // Uncheck the checkbox after resolving
+    }
+   
+  });
+  resolvedComplaintsTableBody.innerHTML = '';
+  resolvedComplaintsData.forEach(complaint => {
+    const row = `
+      <tr>
+        <td>${complaint.regNo}</td>
+        <td>${complaint.name}</td>
+        <td>${complaint.complaint}</td>
+      </tr>
+    `;
+    resolvedComplaintsTableBody.innerHTML += row;
+  });
+
+  complaintsData = complaintsData.filter((_, index) => !document.getElementById(`checkbox-${index}`).checked);
+
+  // Update the complaints table
+  showComplaints();
+ 
+}
+
+
+  function showUpdateMenu() {
+    document.getElementById('complaintsSection').style.display = 'none';
+    document.getElementById('updateMenuSection').style.display = 'block';
+    document.getElementById('resolvedComplaintsSection').style.display = 'none';
+    document.getElementById('viewMenuSection').style.display = 'none';
+  }
+
+  function updateMenu() {
+  const day = document.getElementById('day').value;
+  const meal = document.getElementById('meal').value;
+  const menu = document.getElementById('menu').value;
+
+  // Find the corresponding menu item in menuData and update it
+  const updatedMenuItem = menuData.find(item => item.day === day);
+  if (updatedMenuItem) {
+    updatedMenuItem[meal.toLowerCase()] = menu;
+  }
+
+  // Display a confirmation alert (you can replace this with your desired UI)
+  alert(`Menu for ${meal} on ${day} updated to: ${menu}`);
+
+  // Call viewMenu to refresh the menu display
+  
+  viewMenu();
+  
+}
+
+  function showResolvedComplaints() {
+    const resolvedComplaintsTableBody = document.getElementById('resolvedComplaintsTableBody');
+    resolvedComplaintsTableBody.innerHTML = '';
+
+    resolvedComplaintsData.forEach(complaint => {
+      const row = `
+        <tr>
+          <td>${complaint.regNo}</td>
+          <td>${complaint.name}</td>
+          <td>${complaint.complaint}</td>
+        </tr>
+      `;
+      resolvedComplaintsTableBody.innerHTML += row;
+    });
+
+    document.getElementById('complaintsSection').style.display = 'none';
+    document.getElementById('updateMenuSection').style.display = 'none';
+    document.getElementById('resolvedComplaintsSection').style.display = 'block';
+    document.getElementById('viewMenuSection').style.display = 'none';
+    
+  }
+
+  function viewMenu() {
+    const viewMenuTableBody = document.getElementById('viewMenuTableBody');
+    viewMenuTableBody.innerHTML = '';
+
+    menuData.forEach(menuItem => {
+      const row = `
+        <tr>
+          <td>${menuItem.day}</td>
+          <td>${menuItem.breakfast}</td>
+          <td>${menuItem.lunch}</td>
+          <td>${menuItem.snacks}</td>
+          <td>${menuItem.dinner}</td>
+        </tr>
+      `;
+      viewMenuTableBody.innerHTML += row;
+    });
+
+    document.getElementById('complaintsSection').style.display = 'none';
+    document.getElementById('updateMenuSection').style.display = 'none';
+    document.getElementById('resolvedComplaintsSection').style.display = 'none';
+    document.getElementById('viewMenuSection').style.display = 'block';
+  }
+//   function isLoggedIn() {
+//     const result = sessionStorage.getItem('sessionToken') !== null;
+//     console.log('Is logged in:', result);
+//     return result;
+// }
+
+function logout() {
+    if (window.confirm("Are you sure you want to log out?")) {
+        console.log('Logging out...');
+        window.location.replace('/logout');
+    }
+}
+  </script>
+
+</body>
+</html>
