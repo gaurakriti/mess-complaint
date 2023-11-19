@@ -1,7 +1,13 @@
 const express = require("express");
+const bodyParser = require("body-parser");
 const app = express();
 const path=require("path")
 const  hbs = require("hbs");
+app.use(bodyParser.json());
+
+// const { domainToASCII } = require('url');
+// const asciiDomain = domainToASCII(unicodeDomain);
+
 
 
 // require("./mongodb.js");  //
@@ -57,6 +63,7 @@ app.get("/signup", (req,res)=>{
 app.get("/student", (req,res)=>{
     res.render("student");
  })
+
 app.post("/signup",async(req,res)=>{
    try{
     
@@ -86,7 +93,9 @@ catch(error) {
     console.log(error);
 }
 })
-
+app.get("/std", (req,res)=>{
+    res.render("std")
+})
 
 // create server
 app.listen(3000,()=>{

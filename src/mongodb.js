@@ -52,6 +52,11 @@ const LoginInSchema =new mongoose.Schema({
 
 });
 
+const menuSchema = new mongoose.Schema({
+    day: String,
+    meal: String,
+    item: String
+  });
 const Collection =new mongoose.model("LoginPage",LoginInSchema)
 // const students = async()=>{
 //     try{
