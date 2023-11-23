@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>ACCOUNTANT'S PAGE</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="/acc.css">
+        <h1>WELCOME [ACCOUNTANT Name]</h1>
+    </head>
+    
+    <body>
+        
+    <button onclick="toggleMealPlan()">view Meal Plan</button>
+
+    <div class="fee-status-button">
+        <button onclick="toggleFeeStatus()">Click to see fee status</button>
+    </div>
+    <div class="expenses-button">
+        <button onclick="toggleExpenses()">expenses of each day</button>
+    </div>
+    <table class="meal-plan">
+        <thead>
+            <tr>
+                <th>Day</th>
+                <th>Breakfast</th>
+                <th>Lunch</th>
+                
+                <th>Dinner</th>
+            </tr>
+        </thead>
+            <tbody>
+                <tr>
+                    <td>Monday</td>
+                    <td>omellete,idli sambar,bread jam,milk</td>
+                    <td>mix veg,roti,rice,salad</td>
+                    <td>palak-allu,rice,roti,ice-cream</td>
+                </tr>
+                <tr>
+                    <td>Tuesday</td>
+                    <td>fried-idli,bread-jam,milk,tea</td>
+                    <td>allu,raita,rice,roti,salad</td>
+                    <td>pulao,chola,gulab jamun,roti</td>
+                </tr>
+                <tr>
+                    <td>Wednesday</td>
+                    <td>fruit salad,bread-jam,milk,tea</td>
+                    <td>patta gobi,rice,roti,raita,salad</td>
+                    <td>chana-allu,rice,roti</td>
+                </tr>
+                <tr>
+                    <td>Thursday</td>
+                    <td>pav-bhaji,bread-jam,milk,tea</td>
+                    <td>kadi-pakoda,rice,roti,salad</td>
+                    <td>mix-veg,rice,roti,salad</td>
+                </tr>
+                <tr>
+                    <td>Friday</td>
+                    <td>chole bhature,bread-jam,milk,tea</td>
+                    <td>chana dal,phool gobi,raita,rice,roti,salad</td>
+                    <td>allu-palak,rice,roti,salad</td>
+                </tr>
+                <tr>
+                    <td>Saturday</td>
+                    <td>poori sabji,bread-jam,milk,tea</td>
+                    <td>mix-veg,kali masoor,rice,roti,salad</td>
+                    <td>matar paneer,chana dal,roti,rice</td>
+                </tr>
+                <tr>
+                    <td>Sunday</td>
+                    <td>smabhar vada,omlet,bread-butter</td>
+                    <td>rajma, alu fry,rice,roti,salad</td>
+                    <td>malai kofta,arhar dal,egg curry,roti,rice</td>
+                </tr>
+            </tbody>
+    </table>
+    <table class="fee-status">
+        <thead>
+            <tr>
+                <th>Student Name</th>
+                <th>Registration Number</th>
+                <th>Fee Status</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Student 1</td>
+                <td>20224000</td>
+                <td>Paid</td>
+            </tr>
+            <tr>
+                <td>Student 2</td>
+                <td>20225000</td>
+                <td>Not Paid</td>
+            </tr>
+        </tbody>    
+    </table>        
+        <table class="expenses">
+            <thead>
+                <tr>
+                    <th>day</th>
+                    <th>amount(ruppees)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Monday</td>
+                    <td>10000</td>
+                </tr>
+                <tr>
+                    <td>Tuesday</td>
+                    <td>12000</td>
+                </tr>
+                <tr>
+                    <td>Wednesday</td>
+                    <td>11500</td>
+                </tr>
+                <tr>
+                    <td>thursday</td>
+                    <td>10500</td>
+                </tr>
+                <tr>
+                    <td>thursday</td>
+                    <td>11800</td>
+                </tr>
+                <tr>
+                    <td>friday</td>
+                    <td>10200</td>
+                </tr>
+                <tr>
+                    <td>saturday</td>
+                    <td>10000</td>
+                </tr>
+                <tr>
+                    <td>Sunday</td>
+                    <td>11000</td>
+                </tr>
+
+            </tbody>
+        </table>
+    
+        <div class="logout-button">
+            <button onclick="window.location.href='/logout'">Logout</button>
+        </div>
+    
+        <script>
+            function toggleMealPlan() {
+                toggleTable('meal-plan');
+            }
+    
+            function toggleFeeStatus() {
+                toggleTable('fee-status');
+            }
+    
+            function toggleExpenses() {
+                toggleTable('expenses');
+            }
+    
+            function toggleTable(className) {
+            var tables = document.querySelectorAll('.meal-plan, .fee-status, .expenses');
+            tables.forEach(function (table) {
+            table.style.display = 'none';
+            });
+
+            var selectedTable = document.querySelector('.' + className);
+            if (selectedTable.style.display === 'none') {
+                    selectedTable.style.display = 'table';
+                } else {
+                    selectedTable.style.display = 'none';
+                }
+            }
+            function confirmLogout() {
+            var logoutConfirmed = confirm("Are you sure you want to logout?");
+            if (logoutConfirmed) {
+                window.location.href = '/logout';
+            }
+        }
+        </script>
+    </body>
+</html>

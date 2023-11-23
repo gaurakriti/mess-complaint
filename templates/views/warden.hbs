@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WARDEN'S PAGE</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+    <div class="header">
+        <h1>Welcome, Chief Warden</h1>
+    </div>
+    <div class="welcome-container">
+        <button id="complaints-button" onclick="showPopupList()">Complaints</button>
+    </div>
+    <div id="popup-list">
+        <table>
+            <thead>
+                <tr>
+                    <th>Registration Number</th>
+                    <th>Name</th>
+                    <th>Issue</th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+        <button class="close-button" onclick="hidePopupList()">Close</button>
+    </div>
+    <div class="logout-button">
+        <button onclick="logout()">Logout</button>
+    </div>
+    <script>
+        function logout(){
+            window.location.replace('/logout');
+        }
+
+        function showPopupList() {
+            const table = document.querySelector('#popup-list table tbody');
+            table.innerHTML = '';
+
+            const data = [
+                { registrationNumber: '20221000', name: 'qwe', issue: 'uncooked rotis' },
+                { registrationNumber: '20222000', name: 'asd', issue: 'stained utensils' },
+                { registrationNumber: '20223000', name: 'sdf', issue: 'fans not working in the mess' },
+                { registrationNumber: '20224000', name: 'xyz', issue: 'awful taste' },
+                { registrationNumber: '20225000', name: 'abc', issue: 'too much oil' },
+            ];
+
+            data.forEach(row => {
+                const tr = document.createElement('tr');
+                Object.values(row).forEach(value => {
+                    const td = document.createElement('td');
+                    td.textContent = value;
+                    tr.appendChild(td);
+                });
+                table.appendChild(tr);
+            });
+
+            const popupList = document.getElementById('popup-list');
+            popupList.style.display = 'block';
+
+            // Add animation by setting opacity
+            setTimeout(() => {
+                popupList.style.opacity = 1;
+            }, 100);
+        }
+
+        function hidePopupList() {
+            const popupList = document.getElementById('popup-list');
+            popupList.style.opacity = 0;
+
+            // Hide the element after the animation completes
+            setTimeout(() => {
+                popupList.style.display = 'none';
+            }, 300);
+        }
+    </script>
+</body>
+</html>

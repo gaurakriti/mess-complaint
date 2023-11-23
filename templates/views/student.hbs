@@ -15,17 +15,19 @@
 
      </div>
      <div class="user">
-     <p>Name             : Akriti Gaur</p>
-     <p>Registration no. : 20223022</p>
-     <p>Course : CSE</p>
-     <p>Email : akritigaur1990@gmail.com</p>
-     <p>Hostel's name : DJGH</p>
+     <p>Name             : {{ student.name }}</p>
+     <p>Registration no. :  {{student.reg_no}} </p>
+     <p>Course :{{ student.course}} </p>
+     <p>Current year : {{student.year}}</p>
+     <p>Hostel's name : {{student.hostel}} </p>
      <button>Logout</button>
 
 
 
      </div>
+     
      <div class="complaint">
+        
            <h3>Complaints</h3>
            <table class="table">
             <thead>
@@ -37,31 +39,31 @@
                 </tr>
             </thead>
             <tbody>
+                {{#each complaints}}
                 <tr>
-                    <td>1</td>
-                    <td>mess food</td>
-                    <td>unresolved</td>
-                  
+                    <td>{{@index}}</td>
+                    <td>{{category}}</td>
+                    <td>{{status}}</td>
                 </tr>
-                <tr>
-                    <td>1</td>
-                    <td>mess food</td>
-                    <td>unresolved</td>
-                </tr>
-               
+                
+             {{/each}}  
             </tbody>
         </table>
 
 
      </div>
-
+     <form action="/student" method="POST">
      <div class="file_comp">
-        <label for="category">Category of Complaint :  <input type="text" id="comp"></label>
-       
-        <textarea placeholder="Type Your Complaint Here..." required></textarea>
+        <label for="category">Category of complaint :  <input type="text" name="category" id="category"></label>
+        
+        <input type="hidden"  name="name" value="{{student.name}}" >
+        <input type="hidden"  name="reg_no" value="{{student.reg_no}}" >
+
+        <input type="hidden" id="status" name="status" value="unresolved">
+        <textarea placeholder="Type Your Complaint Here..." name="complaint" required></textarea>
         <input type="submit" name="submit" id="submit">
      </div>
-
+     </form>
      <footer class="foot">
        
      </footer>

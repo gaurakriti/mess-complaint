@@ -1,0 +1,80 @@
+body{
+    background-color: mediumaquamarine;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    
+}
+h1{
+    color: white;
+    text-align: center;
+}
+
+
+        table {
+            background-color: antiquewhite;
+            width: 70%;
+            border-collapse: collapse;
+            margin: 20px auto;
+            border-radius: 9px;
+            animation: fadeIn 0.8s ease-in-out;
+        }
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: center;
+            
+        }
+        .logout-button {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+        }
+
+        .fee-status-button {
+            left: 10px;
+        }
+
+        .fee-status {
+            display: none;
+        }
+
+        .fee-status td {
+            border-bottom: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #cfc0c0;
+        }   
+        .meal-plan {
+            display: none;
+        }
+
+        .expenses{
+            display: none;
+        }
+        .meal-plan td {
+            border-bottom: 1px solid #ddd;
+        }
+        button {
+            padding: 10px;
+            background-color: #3498db;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        button:hover{
+            background-color: rgb(43, 116, 226);
+            transform: scale(1.1);
+            box-shadow: 0 8px 16px rgba(209, 86, 86, 0.2);
+        }

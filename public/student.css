@@ -96,7 +96,7 @@ textarea:is(:focus, :valid){
 textarea::-webkit-scrollbar{
     width: 0px;
 }
-#comp{
+#category{
     width: 80%;
     padding: 8px;
     margin-bottom: 10px;

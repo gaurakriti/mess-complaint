@@ -1,20 +1,20 @@
 const mongoose = require("mongoose");
 
-mongoose.connect("mongodb://0.0.0.0:27017/Collection1", {
-
-}) // name of database
-.then(()=>{
-    console.log("mongodb connected");
-})
-.catch(()=>{
-    console.log("failed to connect");
-})
+const connectToDatabase = async () => {
+    try {
+        await mongoose.connect("mongodb://0.0.0.0:27017/collection1", {});
+        console.log("mongodb connected");
+    } catch (error) {
+        console.log("failed to connect");
+        throw error; // Throw the error to indicate a failed connection
+    }
+};
 
 const LoginInSchema =new mongoose.Schema({
     name:{
         type:String,
         required:true,
-        trim:true
+       
     },
     password:{
         type:String,
@@ -100,5 +100,8 @@ const Collection =new mongoose.model("LoginPage",LoginInSchema)
 //         console.log(err);
 //     }
 // }
-// students()
-module.exports=Collection
+// students();
+module.exports = {
+    connectToDatabase,
+    collection1: Collection,
+};
