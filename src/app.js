@@ -51,8 +51,10 @@
         const password= req.body.password;
         const reg_no=req.body.reg_no;
         const user = await collection1.findOne({password:password});
-        const complaints = await complaint.find({ reg_no: reg_no});
-            if(user.name===name && user.password && user.password === password) {
+            if(user && user.password === password) {
+                const complaints = await complaint.find();
+                console.log(user);
+               console.log(complaints)
                 res.render('student',{ student: user , complaints: complaints});
                 
             }
@@ -139,7 +141,8 @@
         })
         await complaintmess.save();
         const user = await collection1.findOne({reg_no:req.body.reg_no});
-        res.render('student',{ student: user });
+        const complaints = await complaint.find();
+        res.render('student',{ student: user ,complaints:complaints});
        
 
 

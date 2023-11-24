@@ -13,12 +13,13 @@ font-family: 'Roboto Slab', serif;
 }
 body{
     background-color: rgb(213, 191, 233);
+    z-index: 1;
 }
 .header{
     position: fixed;
     background: rgb(77, 51, 88);
     color: rgb(68, 23, 113);
-    height: 80px;
+    height: 70px;
     width: 100%;
     top: 0px;
     text-align: center;
@@ -47,14 +48,71 @@ body{
     cursor: pointer;
     
 }
-.complaint{
+
+
+ .complaint{
+    display: flex;
+    overflow-x: auto;
     margin-top:40px;
     background-color: rgb(188, 164, 211);
-    height: 200px;
+    height: 350px;
     padding: 50px;
+}
+
+.complaints-table {
+    flex: 1;
+    margin: 10px;
+    overflow: hidden;
+    position: relative;
+}
+
+h3 {
+    position: sticky;
+    top: 0;
+    background-color: rgb(145, 145, 167);
+    padding: 10px;
+    margin: 0;
+    z-index: 1;
 
 }
 
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+
+tbody {
+    display: block; 
+
+    max-height: 300px;
+    overflow-y: auto;
+}
+
+thead, tbody tr {
+    display: table;
+    width: 100%;
+    table-layout: fixed;
+
+}
+     
+tbody td {
+    word-wrap: break-word;
+} 
+textarea::-webkit-scrollbar-thumb {
+    background-color: #5e4671;
+    border-radius: 4px;
+}
+
+textarea::-webkit-scrollbar-track {
+    background-color: #b78ed8;
+}
 .file_comp {
     background-color:rgb(188, 164, 211);
     padding: 20px;

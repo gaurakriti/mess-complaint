@@ -27,15 +27,14 @@
      </div>
      
      <div class="complaint">
-        
-           <h3>Complaints</h3>
-           <table class="table">
+        <div class="complaints-table">
+        <h3>My Complaints</h3>
+        <table class="table">
             <thead>
                 <tr>
                     <th>ID</th>
                     <th>Category</th>
                     <th>Status</th>
-                  
                 </tr>
             </thead>
             <tbody>
@@ -45,13 +44,34 @@
                     <td>{{category}}</td>
                     <td>{{status}}</td>
                 </tr>
-                
-             {{/each}}  
+                {{/each}}
             </tbody>
         </table>
+    </div>
 
+    <div class="complaints-table">
+        <h3>All Complaints</h3>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Category</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                {{#each complaints}}
+                <tr>
+                    <td>{{@index}}</td>
+                    <td>{{category}}</td>
+                    <td>{{status}}</td>
+                </tr>
+                {{/each}}
+            </tbody>
+        </table>
+    </div>
+</div>
 
-     </div>
      <form action="/student" method="POST">
      <div class="file_comp">
         <label for="category">Category of complaint :  <input type="text" name="category" id="category"></label>
